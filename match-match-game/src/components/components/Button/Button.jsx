@@ -22,7 +22,8 @@ const StyledButton = styled.button `
     };
 
     &:focus {
-        outline: 0;
+        outline: none;
+        box-shadow: 1px 4px 8px white;
 
     };
     &:active {
