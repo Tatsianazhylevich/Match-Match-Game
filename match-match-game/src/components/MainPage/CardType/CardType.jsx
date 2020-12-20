@@ -44,6 +44,7 @@ const SkirtContainer = styled.div`
     display: flex;
     justify-content: center;
     margin: 10px;
+   
 `;
 
 const Skirt = styled.img`
@@ -60,11 +61,16 @@ const Skirt = styled.img`
     color: lightblue;
     box-shadow: 0 0 10px black;
     transform: scale(1.1);
+  };
+
+  &:focus {
+    box-shadow: 1px 4px 8px white;
+  };
   
   &:active {
     box-shadow: 0 0 10px white;
     transform: translate(2px);
-  }
+  };
 `;
 
 

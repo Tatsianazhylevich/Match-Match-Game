@@ -11,8 +11,12 @@ export function Card({ frontImg, backImg }) {
 
     return (
         <CardContainer rotateCard={rotateCard}>
-            <FrontCard background={frontImg} onClick={onClickHandler}></FrontCard>
+            <FrontCard>
+            <Image src={frontImg} onClick={onClickHandler} />
+           
+            </FrontCard>
             <BackCard background={backImg}></BackCard>
+            
         </CardContainer>
     );
 }
@@ -41,6 +45,11 @@ const FrontCard = styled.div`
 const BackCard = styled.div`
   position: absolute;
   transform: rotateY(180deg);
+  height: 100%;
+  width: 100%;
+`;
+
+const Image = styled.img`
   height: 100%;
   width: 100%;
 `;
