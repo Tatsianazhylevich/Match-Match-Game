@@ -13,7 +13,7 @@ import Children from '../../../assets/cards/Children.jpg';
 
 function shuffle(array) {
   const newArray = array.slice(0);
-  for (let i = 0; i < array.length - 1; i++) {
+  for (let i = 0; i < array.length - 1; i += 1) {
     const randomIndex = Math.floor(Math.random() * (i + 1));
     const temp = newArray[i];
     newArray[i] = newArray[randomIndex];
@@ -39,12 +39,12 @@ export function initializeDeck() {
     { name: 'Children', front: Children },
   ].reduce((acc, type) => {
     acc.push({
-      id: id++,
+      id: id += 1,
       type: type.front,
       key: id,
     });
     acc.push({
-      id: id++,
+      id: id += 1,
       type: type.front,
       key: id,
     });
