@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { LoginPage } from './LoginPage';
-import { MainPage} from './MainPage';
-import {bootstrapStart} from './actions'
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import styled from 'styled-components';
+import { LoginPage } from './LoginPage';
+import { MainPage } from './MainPage';
+import { bootstrapStart } from './actions';
 
-export function MatchMatchGame(){
-    const { isAuthorized, bootstraped, } = useSelector((state) => state.game);
+export function MatchMatchGame() {
+  const { isAuthorized, bootstraped } = useSelector((state) => state.game);
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(bootstrapStart());
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(bootstrapStart());
+  }, [dispatch]);
 
-    return bootstraped 
+  return bootstraped
     ? isAuthorized
-        ? <MainPage />
-        :  <LoginPage />
-    : null
+      ? <MainPage />
+      : <LoginPage />
+    : null;
 }

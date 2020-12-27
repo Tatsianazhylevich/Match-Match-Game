@@ -1,49 +1,62 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
-import  Skirt_1 from './Skirt_1.jpg';
-import  Skirt_2 from './Skirt_2.jpg';
-import  Skirt_3 from './Skirt_3.jpg';
-import SkirtBear from './Skirt-Bear.jpg';
-
 import { useDispatch } from 'react-redux';
-import {chooseCardType} from '../../actions'
+import Shirt1 from '../../../assets/Shirt1.jpg';
+import Shirt3 from '../../../assets/Shirt3.jpg';
+import Shirt2 from '../../../assets/Shirt2.jpg';
+
+import { chooseCardType } from '../../actions';
 
 export function CardType() {
-    const dispatch = useDispatch();
-    return (
-        <StyledContainer className='cardType'>
-        <StyledText>Choose the type of skirt...</StyledText>
-        <SkirtContainer>
-            <div><Skirt onClick={() => dispatch(chooseCardType('Skirt_1'))} src={Skirt_1}/></div>
-            <div><Skirt onClick={() => dispatch(chooseCardType('SkirtBear'))} src={SkirtBear}/></div>
-            <div><Skirt onClick={() => dispatch(chooseCardType('Skirt_3'))} src={Skirt_3}/></div>
-            
-            
-            
-        </SkirtContainer>
+  const [cardType, setCardType] = useState('');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(chooseCardType(cardType));
+  }, [cardType, dispatch]);
+
+  const onClickFirstShirt = useCallback(() => {
+    setCardType(0);
+  }, []);
+
+  const onClickSecondShirt = useCallback(() => {
+    setCardType(1);
+  }, []);
+
+  const onClickThirdShirt = useCallback(() => {
+    setCardType(2);
+  }, []);
+
+  return (
+    <StyledContainer className="cardType">
+      <StyledText>Choose the type of shirt...</StyledText>
+      <SkirtContainer>
+        <Skirt onClick={onClickFirstShirt} src={Shirt1} />
+        <Skirt onClick={onClickSecondShirt} src={Shirt2} />
+        <Skirt onClick={onClickThirdShirt} src={Shirt3} />
+      </SkirtContainer>
     </StyledContainer>
-    )
+  );
 }
 
-const StyledContainer = styled.div `
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-
+const StyledContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 `;
 
-const StyledText = styled.p `
-    margin: 0;
-    font-size: 30px;
-    color: white;
-    text-shadow: 1px 1px 1px black, 0 0 .3em white;
+const StyledText = styled.p`
+  margin: 0;
+  font-size: 30px;
+  color: white;
+  text-shadow: 1px 1px 1px black, 0 0 .3em white;
 `;
 
 const SkirtContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    margin: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
    
 `;
 
@@ -72,6 +85,3 @@ const Skirt = styled.img`
     transform: translate(2px);
   };
 `;
-
-
-

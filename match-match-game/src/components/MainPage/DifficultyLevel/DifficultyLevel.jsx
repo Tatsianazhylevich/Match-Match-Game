@@ -1,50 +1,54 @@
-import React, { useState, useCallback} from 'react';
-import { Button } from '../../components/Button';
+import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import {chooseDifficulty} from '../../actions'
+import { Button } from '../../components/Button';
+import { chooseDifficulty } from '../../actions';
 
 export function DifficultyLevel() {
-    const {chooseLevel, setChooseLevel} = useState('Easy');
-    const dispatch = useDispatch();
+  const [activeLevel, setActiveLevel] = useState('');
+  const dispatch = useDispatch();
 
-    const LevelEasy = useCallback(() => {
-        dispatch(chooseDifficulty('Easy'))
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(chooseDifficulty(activeLevel));
+  }, [dispatch, activeLevel]);
 
-    const LevelMedium = useCallback(() => {
-        dispatch(chooseDifficulty('Medium'))
-    }, [dispatch]);
+  const onClickEasy = useCallback(() => {
+    setActiveLevel('Easy');
+  }, []);
 
-    const LevelHard = useCallback(() => {
-        dispatch(chooseDifficulty('Hard'))
-    }, [dispatch]);
+  const onClickMedium = useCallback(() => {
+    setActiveLevel('Medium');
+  }, []);
 
-    return (
-        <StyledContainer className='difficulty'>
-            <StyledText>Choose the difficulty level...</StyledText>
-            <div>
-                <Button onClick={LevelEasy}>Easy</Button>
-                <Button onClick={LevelMedium}>Medium</Button>
-                <Button onClick={LevelHard}>Hard</Button>
-            </div>
-        </StyledContainer>
-                    
-        
-    )
+  const onClickHard = useCallback(() => {
+    setActiveLevel('Hard');
+  }, []);
+
+  return (
+    <StyledContainer className="difficulty">
+      <StyledText>Choose the difficulty level...</StyledText>
+
+      <div>
+        <Button className="easy" onClick={onClickEasy}>Easy</Button>
+        <Button className="medium" onClick={onClickMedium}>Medium</Button>
+        <Button className="hard" onClick={onClickHard}>Hard</Button>
+      </div>
+
+    </StyledContainer>
+
+  );
 }
 
-const StyledContainer = styled.div `
+const StyledContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: center;
 
-`
-
-const StyledText = styled.p `
+`;
+const StyledText = styled.p`
     margin: 0;
     font-size: 30px;
     color: white;
     text-shadow: 1px 1px 1px black, 0 0 .3em white;
-`
+`;

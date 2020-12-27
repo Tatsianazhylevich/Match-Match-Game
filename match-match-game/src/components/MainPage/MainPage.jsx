@@ -1,52 +1,81 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import useSound from 'use-sound';
+import { logout } from '../actions';
 import { DifficultyLevel } from './DifficultyLevel';
 import { CardType } from './CardType';
-import { Rules } from './Rules';
-import { Button } from '../components/Button'
+import { Button } from '../components/Button';
 
-import styled from 'styled-components';
+import JingleBells from '../../sounds/JingleBells.mp3';
 
+export function MainPage() {
+  const [isChecked, setIsChecked] = useState(false);
+  const [playOn] = useSound(
+    JingleBells,
+    { volume: 0.25 },
+  );
 
-export function MainPage(){
-    
-    const [options, setOptions] = useState(null)
+  const getMusic = () => {
+    if (isChecked) {
+      return '';
+    } return playOn;
+  };
 
-    // useEffect(() => {
-    //     const ReadMore = 
-    // }, [])
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-    return (
-            <StyledMainPage>
-                <DifficultyLevel />
-                <CardType />    
-                    
-                    <div>
-                        <Button > Read more </Button>
-                        <StyledText>...and now let's start!</StyledText>
-                        <ButtonGo>GO!</ButtonGo>
-                        
+  const goToGameBoard = useCallback(() => {
+    history.push('/GameBoard');
+  }, [history]);
 
-                        <Rules/>
-                    </div>
-            </StyledMainPage>
-    );
+  const getReadRules = useCallback(() => {
+    history.push('/Rules');
+  }, [history]);
+
+  const pushTologout = useCallback(() => {
+    dispatch(logout());
+    history.push('/autorization');
+  }, [dispatch, history]);
+
+  return (
+    <StyledMainPage>
+      <Button onClick={pushTologout}>Logout</Button>
+
+      <DifficultyLevel />
+      <CardType />
+
+      <Button onClick={getReadRules}> Read more </Button>
+      <StyledText>...and now let's start!</StyledText>
+      <ButtonGo type="submit" onClick={goToGameBoard}>GO!</ButtonGo>
+      <div>
+        <StyledText> Sound</StyledText>
+        <input
+          type="checkbox"
+          checked={isChecked}
+          size={30}
+          onChange={() => setIsChecked(getMusic())}
+        />
+      </div>
+
+    </StyledMainPage>
+
+  );
 }
 
-const StyledMainPage = styled.div `
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+const StyledMainPage = styled.div`
+    width: 70%;
+    margin: 0 auto;
     text-align: center;
-`
-const StyledText = styled.p `
+`;
+const StyledText = styled.p`
     margin: 0;
     font-size: 30px;
     color: white;
     text-shadow: 1px 1px 1px black, 0 0 .3em white;
-`
-
-
-const ButtonGo = styled.button `
+`;
+const ButtonGo = styled.button`
     margin: 10px;
     padding: 10px 15px;
     border-radius: 6px;
@@ -67,5 +96,5 @@ const ButtonGo = styled.button `
     };
     &:active {
         transform: translate(2px);
-      }
-`
+    }
+`;

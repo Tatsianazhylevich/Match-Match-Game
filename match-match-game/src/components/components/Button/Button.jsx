@@ -1,12 +1,11 @@
-import React, {  } from 'react';
-import styled from 'styled-components'
+import React, { } from 'react';
+import styled from 'styled-components';
 
-export function Button ({onClick, children}) {
-
-    return <StyledButton onClick={onClick}>{children}</StyledButton>
+export function Button({ onClick, children }) {
+  return <StyledButton onClick={onClick}>{children}</StyledButton>;
 }
 
-const StyledButton = styled.button `
+const StyledButton = styled.button`
     margin: 10px;
     padding: 10px 15px;
     border-radius: 6px;
@@ -29,4 +28,4 @@ const StyledButton = styled.button `
     &:active {
         transform: translate(2px);
       }
-`
+`;

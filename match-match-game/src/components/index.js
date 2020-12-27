@@ -4,8 +4,5 @@ export { MatchMatchGame } from './MatchMatchGame';
 export { MainPage } from './MainPage';
 export { LoginPage } from './LoginPage';
 export { Rules } from './MainPage/Rules';
-
-
-
-
-
+export { GameBoard } from './GameBoard';
+export { GameOver } from './GameOver';
