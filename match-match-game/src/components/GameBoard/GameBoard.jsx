@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
@@ -18,6 +19,8 @@ export function GameBoard() {
   const [disabled, setDisabled] = useState(false);
   const [steps, setSteps] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+
+  const userName = useSelector((state) => state.game.userName);
 
   useEffect(() => {
     resizeBoard();
@@ -39,7 +42,7 @@ export function GameBoard() {
     );
   };
 
-  const handleClick = (id) => {
+  const handleClick = useCallback((id) => {
     setDisabled(true);
 
     if (flipped.length === 0) {
@@ -62,12 +65,17 @@ export function GameBoard() {
         setGameOver(true);
       }
     }
-  };
+  }, [flipped, solved, steps]);
 
   const isGameOver = () => {
-    if (solved.length === cards.length) return true;
-    return false;
+    if (solved.length === cards.length) {
+      return setGameOver(true);
+    }
+    return setGameOver(false);
   };
+  console.log(solved);
+  console.log(cards);
+  console.log(gameOver);
 
   const resetCards = () => {
     setFlipped([]);
@@ -87,13 +95,14 @@ export function GameBoard() {
   }, [history]);
 
   const restartGame = useCallback(() => {
+    history.push('/GameBoard');
+    setGameOver(false);
     setSteps(0);
     setDisabled(false);
     setFlipped([]);
     setSolved([]);
     setCards(initializeDeck());
-    setGameOver(false);
-  }, []);
+  }, [history]);
 
   return (
     <Container>
@@ -115,6 +124,7 @@ export function GameBoard() {
 
       { gameOver ? (
         <GameOver
+          name={userName}
           steps={steps}
           onBackToMainClick={backToMainPage}
           onRestartClick={restartGame}

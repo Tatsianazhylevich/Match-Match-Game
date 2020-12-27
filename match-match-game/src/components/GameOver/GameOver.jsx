@@ -5,7 +5,9 @@ export function GameOver({
   name, steps, onBackToMainClick, onRestartClick,
 }) {
   return (
-    <StyledGameOver className="game-over">
+    <StyledGameOver
+      className="game-over"
+    >
       <h1>Congratulations!!!</h1>
       <p>
         Well played,
@@ -39,9 +41,10 @@ const StyledGameOver = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #57b664;
+    border: 1px solid #758cac;
     border-radius: 10px;
     width: 300px;
-    height: 200px;
-    background-color: #c9c8c8;
+    height: 300px;
+    background-color: #acbdc4;
+    opacity: 0.8;
 `;

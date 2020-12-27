@@ -37,7 +37,7 @@ export function initializeDeck() {
     { name: 'Sock', front: Sock },
     { name: 'Cap', front: Cap },
     { name: 'Children', front: Children },
-  ].reduce((acc, type) => {
+  ].slice(0, 6).reduce((acc, type) => {
     acc.push({
       id: id += 1,
       type: type.front,

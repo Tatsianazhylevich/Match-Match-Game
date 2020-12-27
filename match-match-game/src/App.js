@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 
 import {
-  Header, MatchMatchGame, LoginPage, MainPage, GameBoard,
+  Header, MatchMatchGame, LoginPage, MainPage, GameBoard, GameOver,
 } from './components';
 import { Rules } from './components/MainPage/Rules';
 // import {bootstrapStart} from './components/actions'
@@ -27,6 +27,7 @@ function App() {
           <Route path="/MainPage" component={MainPage} />
           <Route path="/Rules" component={Rules} />
           <Route path="/GameBoard" component={GameBoard} />
+          <Route path="/GameOver" component={GameOver} />
           <Redirect to="/" />
         </Switch>
       </div>

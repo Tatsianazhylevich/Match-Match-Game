@@ -5,7 +5,7 @@ import { Button } from '../../components/Button';
 import { chooseDifficulty } from '../../actions';
 
 export function DifficultyLevel() {
-  const [activeLevel, setActiveLevel] = useState('');
+  const [activeLevel, setActiveLevel] = useState(12);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -13,15 +13,15 @@ export function DifficultyLevel() {
   }, [dispatch, activeLevel]);
 
   const onClickEasy = useCallback(() => {
-    setActiveLevel('Easy');
+    setActiveLevel(6);
   }, []);
 
   const onClickMedium = useCallback(() => {
-    setActiveLevel('Medium');
+    setActiveLevel(8);
   }, []);
 
   const onClickHard = useCallback(() => {
-    setActiveLevel('Hard');
+    setActiveLevel(12);
   }, []);
 
   return (
