@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import useSound from 'use-sound';
 
 import { Board } from './components';
 import { GameOver } from '../GameOver';
@@ -20,6 +21,8 @@ import Sock from '../../assets/cards/Sock.jpg';
 import Cap from '../../assets/cards/Cap.jpg';
 import Children from '../../assets/cards/Children.jpg';
 
+import sng from '../../sounds/sng.mp3';
+
 export function GameBoard() {
   const history = useHistory();
 
@@ -33,6 +36,8 @@ export function GameBoard() {
 
   const userName = useSelector((state) => state.game.userName);
   const difficulty = useSelector((state) => state.game.difficultyGame);
+
+  const [play] = useSound(sng);
 
   function shuffle(array) {
     const newArray = array.slice(0);
@@ -96,6 +101,11 @@ export function GameBoard() {
     );
   };
 
+  const isGameOver = () => {
+    if (solved.length === cards.length) return true;
+    return false;
+  };
+
   const handleClick = useCallback((id) => {
     setDisabled(true);
 
@@ -116,19 +126,15 @@ export function GameBoard() {
       }
 
       if (isGameOver()) {
+        play();
         setGameOver(true);
       }
     }
   }, [flipped, solved, steps]);
 
-  const isGameOver = () => {
-    if (solved.length === cards.length) {
-      return setGameOver(true);
-    }
-    return setGameOver(false);
-  };
   console.log(solved);
   console.log(cards);
+  console.log(isGameOver());
   console.log(gameOver);
 
   const resetCards = () => {
@@ -161,10 +167,18 @@ export function GameBoard() {
   return (
     <Container>
       <HeaderMenu>
-        <Button onClick={backToMainPage}>Main Page</Button>
-        <Button onClick={restartGame}>Restart</Button>
+        <div>
+          <Button onClick={backToMainPage}>Main Page</Button>
+          <Button onClick={restartGame}>Restart</Button>
+        </div>
 
-        {/* <Timer /> */}
+        <div>
+          <StyledText>
+            Steps:
+            {' '}
+            {steps}
+          </StyledText>
+        </div>
       </HeaderMenu>
 
       <Board
@@ -176,14 +190,14 @@ export function GameBoard() {
         solved={solved}
       />
 
-      { gameOver ? (
+      { !gameOver ? '' : (
         <GameOver
           name={userName}
           steps={steps}
           onBackToMainClick={backToMainPage}
           onRestartClick={restartGame}
         />
-      ) : null}
+      )}
 
     </Container>
 
@@ -191,6 +205,7 @@ export function GameBoard() {
 }
 
 const HeaderMenu = styled.div`
+width: 100%;
  display: flex;
  justify-content: space-between;
 `;
@@ -203,4 +218,11 @@ const Container = styled.div`
     perspective: 1000px;
     
 
+`;
+
+const StyledText = styled.p`
+    margin: 15px;
+    font-size: 30px;
+    color: white;
+    text-shadow: 1px 1px 1px black, 0 0 .3em white;
 `;

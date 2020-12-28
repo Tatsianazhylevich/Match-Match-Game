@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Button } from '../components/Button';
 
 export function GameOver({
   name, steps, onBackToMainClick, onRestartClick,
@@ -9,23 +10,23 @@ export function GameOver({
       className="game-over"
     >
       <h1>Congratulations!!!</h1>
-      <p>
+      <StyledText>
         Well played,
         {' '}
         {name}
         !
-      </p>
-      <p>
+      </StyledText>
+      <StyledText>
         You do it in
         {' '}
         {steps}
         {' '}
         steps
-      </p>
-      <p>Do you want to play again?</p>
+      </StyledText>
+      <StyledText>Do you want to play again?</StyledText>
       <div className="btn-block">
-        <button className="btn" onClick={onRestartClick}>Restart</button>
-        <button className="btn" onClick={onBackToMainClick}>Menu</button>
+        <Button className="btn" onClick={onRestartClick}>Restart</Button>
+        <Button className="btn" onClick={onBackToMainClick}>Menu</Button>
       </div>
     </StyledGameOver>
 
@@ -38,13 +39,19 @@ const StyledGameOver = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     border: 1px solid #758cac;
     border-radius: 10px;
     width: 300px;
-    height: 300px;
+    height: 350px;
     background-color: #acbdc4;
-    opacity: 0.8;
+    opacity: 0.9;
+`;
+
+const StyledText = styled.p`
+    margin: 0;
+    font-size: 20px;
+    color: black;
 `;

@@ -13,7 +13,7 @@ export function Card({
 
   return (
     <Container
-      className={`flipContainer ${flipped} ? 'flipped' : ''`}
+      className={`${flipped ? 'flipped' : ''}`}
       onClick={() => (disabled ? null : handleClick(id))}
     >
       <CardContainer className="back ">
@@ -72,12 +72,12 @@ const Image = styled.img`
     position: absolute;
     backface-visibility: hidden;
 
-    .back {
-        transform: rotateY(180deg);
+    // .back {
+    //     transform: rotateY(180deg);
        
-    };
-    .front {
-        z-index: 2;
-        transform: rotateY(0deg);
-    };
+    // };
+    // .front {
+    //     z-index: 2;
+    //     transform: rotateY(0deg);
+    // };
 `;
