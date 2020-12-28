@@ -1,1 +1,1 @@
-export { initializeDeck } from './Images';
+export { imageCards } from './Images';

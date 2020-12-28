@@ -6,7 +6,7 @@ const initialState = {
   isAuthorized: false,
   bootstraped: false,
   userName: '',
-  difficultyGame: 12,
+  difficultyGame: 6,
   cardType: 0,
 };
 

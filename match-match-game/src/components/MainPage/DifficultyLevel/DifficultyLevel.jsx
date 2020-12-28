@@ -17,7 +17,7 @@ export function DifficultyLevel() {
   }, []);
 
   const onClickMedium = useCallback(() => {
-    setActiveLevel(8);
+    setActiveLevel(9);
   }, []);
 
   const onClickHard = useCallback(() => {
