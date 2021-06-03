@@ -132,8 +132,8 @@ export function GameBoard() {
     }
   }, [flipped, solved, steps]);
 
-  console.log(solved);
-  console.log(cards);
+  // console.log(solved);
+  // console.log(cards);
   console.log(isGameOver());
   console.log(gameOver);
 
