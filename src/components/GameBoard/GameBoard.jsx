@@ -128,6 +128,8 @@ export function GameBoard() {
       if (isGameOver()) {
         play();
         setGameOver(true);
+      } else {
+        setGameOver(false);
       }
     }
   }, [flipped, solved, steps]);
@@ -190,7 +192,7 @@ export function GameBoard() {
         solved={solved}
       />
 
-      { !gameOver ? '' : (
+      { !isGameOver() ? '' : (
         <GameOver
           name={userName}
           steps={steps}
