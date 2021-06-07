@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/Match-Match-Game/static/css/main.ae2b500a.chunk.css",
+    "main.js": "/Match-Match-Game/static/js/main.ac38e261.chunk.js",
+    "main.js.map": "/Match-Match-Game/static/js/main.ac38e261.chunk.js.map",
+    "runtime-main.js": "/Match-Match-Game/static/js/runtime-main.19686c7e.js",
+    "runtime-main.js.map": "/Match-Match-Game/static/js/runtime-main.19686c7e.js.map",
+    "static/js/2.5ce006c8.chunk.js": "/Match-Match-Game/static/js/2.5ce006c8.chunk.js",
+    "static/js/2.5ce006c8.chunk.js.map": "/Match-Match-Game/static/js/2.5ce006c8.chunk.js.map",
+    "static/js/3.2ed3b95b.chunk.js": "/Match-Match-Game/static/js/3.2ed3b95b.chunk.js",
+    "static/js/3.2ed3b95b.chunk.js.map": "/Match-Match-Game/static/js/3.2ed3b95b.chunk.js.map",
+    "static/js/4.8d93b167.chunk.js": "/Match-Match-Game/static/js/4.8d93b167.chunk.js",
+    "static/js/4.8d93b167.chunk.js.map": "/Match-Match-Game/static/js/4.8d93b167.chunk.js.map",
+    "index.html": "/Match-Match-Game/index.html",
+    "static/css/main.ae2b500a.chunk.css.map": "/Match-Match-Game/static/css/main.ae2b500a.chunk.css.map",
+    "static/js/2.5ce006c8.chunk.js.LICENSE.txt": "/Match-Match-Game/static/js/2.5ce006c8.chunk.js.LICENSE.txt",
+    "static/js/3.2ed3b95b.chunk.js.LICENSE.txt": "/Match-Match-Game/static/js/3.2ed3b95b.chunk.js.LICENSE.txt",
+    "static/media/Bool.cde167e9.jpg": "/Match-Match-Game/static/media/Bool.cde167e9.jpg",
+    "static/media/Cap.0bfb948d.jpg": "/Match-Match-Game/static/media/Cap.0bfb948d.jpg",
+    "static/media/Car.b3178b1b.jpg": "/Match-Match-Game/static/media/Car.b3178b1b.jpg",
+    "static/media/Children.438626ef.jpg": "/Match-Match-Game/static/media/Children.438626ef.jpg",
+    "static/media/ChristmasTree.f7493c26.jpg": "/Match-Match-Game/static/media/ChristmasTree.f7493c26.jpg",
+    "static/media/Gingerbread.ba1498f4.jpg": "/Match-Match-Game/static/media/Gingerbread.ba1498f4.jpg",
+    "static/media/Girl.89959ba6.jpg": "/Match-Match-Game/static/media/Girl.89959ba6.jpg",
+    "static/media/Gnome.4df94237.jpg": "/Match-Match-Game/static/media/Gnome.4df94237.jpg",
+    "static/media/LittleDeer.5523959a.jpg": "/Match-Match-Game/static/media/LittleDeer.5523959a.jpg",
+    "static/media/Love.313e89c2.jpg": "/Match-Match-Game/static/media/Love.313e89c2.jpg",
+    "static/media/Rabbit.40b0d164.jpg": "/Match-Match-Game/static/media/Rabbit.40b0d164.jpg",
+    "static/media/Shirt1.9b38b91a.jpg": "/Match-Match-Game/static/media/Shirt1.9b38b91a.jpg",
+    "static/media/Shirt2.dcc5c50b.jpg": "/Match-Match-Game/static/media/Shirt2.dcc5c50b.jpg",
+    "static/media/Shirt3.3bd8fade.jpg": "/Match-Match-Game/static/media/Shirt3.3bd8fade.jpg",
+    "static/media/Sock.37b03563.jpg": "/Match-Match-Game/static/media/Sock.37b03563.jpg",
+    "static/media/index.css": "/Match-Match-Game/static/media/christmas-bear.7ea97b56.jpg",
+    "static/media/hoho.bef1508d.mp3": "/Match-Match-Game/static/media/hoho.bef1508d.mp3",
+    "static/media/sng.01eecf0b.mp3": "/Match-Match-Game/static/media/sng.01eecf0b.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.19686c7e.js",
+    "static/js/2.5ce006c8.chunk.js",
+    "static/css/main.ae2b500a.chunk.css",
+    "static/js/main.ac38e261.chunk.js"
+  ]
+}
